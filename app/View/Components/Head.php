@@ -16,7 +16,7 @@ class Head extends Component
 
     public function __construct()
     {
-        $this->title = 'Cervecerías recomendadas';
+        $this->title = 'Cervecerías Recomendadas';
     }
 
     /**
