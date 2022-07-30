@@ -7,7 +7,7 @@
     <table class="table table-striped container">
 
         @foreach ($breweries as $brewerie)
-        <tr><td><a href="/brewerie/{{$brewerie[0]}}">{{$brewerie[1]}}</a></td></tr>
+        <tr><td><a href="/brewerie/{{$brewerie->id}}">{{$brewerie->name}}</a></td></tr>
         @endforeach
         
     </table>
