@@ -17,14 +17,18 @@ use App\Http\Controllers\SuggestController;
 */
 
 Route::get('/', function () {
-    return redirect()->route('landing');
-});
+    return redirect()->route('index');
+})->name ('landing');
 
 Route::get ('/login', [BrewerieController::class, 'login'])->name('login');
 
-Route::get ('/index', [BrewerieController::class, 'index'])->name('landing');
+Route::get ('/index', [BrewerieController::class, 'index'])->name('index');
 
-Route::get ('/brewerie/{id}', [BrewerieController::class, 'show']);
+Route::get ('/brewerie/{id}', [BrewerieController::class, 'show'])->name('brewerieshow');
+
+Route::get ('/brewerie', [BrewerieController::class, 'create'])->name('brewerie');
+
+Route::post('/brewerie', [BrewerieController::class, 'store']);
 
 Route::get ('/about', function(){
     return view('about', ['empName' => 'aulab']);
