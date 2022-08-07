@@ -11,10 +11,7 @@ use App\Http\Requests\BrewerieRequest;
 class BrewerieController extends Controller{
 
     public function index (){
-        //$breweries = DB::table('breweries')->get(); //base de datos
-        //$breweries = Brewerie::all()->sortByDesc('created_at'); //no avisa si hay error en nombre
-        $breweries = Brewerie::all()->sortBy('created_at', null, true);
-        //dd($breweries);
+        $breweries = Brewerie::orderByDesc('created_at')->paginate(12); //no avisa si hay error en nombre
         return view('breweries.index', ['breweries' => $breweries]);
     }
 
@@ -39,7 +36,7 @@ class BrewerieController extends Controller{
                 'url' => $img
                 ])->saveOrFail();
                 //return back ()->with();
-                return redirect()->route('landing')->with ('success', 'Los datos de la cervecería han sido enviados.');
+                return redirect()->route('home')->with ('success', 'Los datos de la cervecería han sido enviados.');
             }
             else{
                 return back()->with ('error', 'No ha indiciado el nombre.');

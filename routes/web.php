@@ -17,12 +17,12 @@ use App\Http\Controllers\SuggestController;
 */
 
 Route::get('/', function () {
-    return redirect()->route('index');
-})->name ('landing');
+    return redirect()->route('localhome');
+})->name ('home');
 
-Route::get ('/login', [BrewerieController::class, 'login'])->name('login');
+Route::get ('/login', [BrewerieController::class, 'login']);
 
-Route::get ('/index', [BrewerieController::class, 'index'])->name('index');
+Route::get ('/index', [BrewerieController::class, 'index'])->name('localhome');
 
 Route::get ('/brewerie/{id}', [BrewerieController::class, 'show'])->name('brewerieshow');
 
@@ -41,3 +41,7 @@ Route::post('/contact', [ContactController::class, 'store']);
 Route::get ('/brewery', [SuggestController::class, 'create']);
 
 Route::post ('/brewery', [SuggestController::class, 'store'])->name('suggestbrewery');
+
+Auth::routes();
+
+//Route::get('/register', [App\Http\Controllers\BrewerieController::class, 'index']);

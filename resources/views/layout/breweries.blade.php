@@ -1,19 +1,19 @@
 <x-head/>
 
 <body>
-    
+
     <!-- Nav Bar -->
 
-    <x-nav-bar />
-    
+    <x-nav-bar/>
+
     <!-- Titulo -->
 
-    <h2 class="text-center">@yield ('title')</h2>
+    <h2 class="text-center py-3">@yield ('title')</h2>
 
     <!-- Contenido -->
 
     @yield ('content')
-    
+
     @yield('message')
 
 <script src="{{asset ('js/app.js')}}" rel="text/javascript"></script>

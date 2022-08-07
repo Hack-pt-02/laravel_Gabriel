@@ -22,7 +22,7 @@ class ContactNotification extends Mailable
      * @return void
      */
 
-    public function __construct($email, $message)
+    public function __construct (string $email, string $message)
     {
         $this->email = $email;
         $this->message = $message;
