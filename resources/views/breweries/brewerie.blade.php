@@ -17,7 +17,7 @@
 </div>
 
 <div class="container d-flex justify-content-center">
-    <a href="{{ url ('/index') }}" class="btn btn-danger">Volver</a>
+    <a href="{{ route ('home') }}" class="btn btn-danger">Volver</a>
 </div>
 
 @endsection

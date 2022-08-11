@@ -11,7 +11,7 @@ use App\Http\Requests\BrewerieRequest;
 class BrewerieController extends Controller{
 
     public function index (){
-        $breweries = Brewerie::orderByDesc('created_at')->paginate(12); //no avisa si hay error en nombre
+        $breweries = Brewerie::orderByDesc('created_at')->paginate(12);
         return view('breweries.index', ['breweries' => $breweries]);
     }
 
@@ -21,57 +21,31 @@ class BrewerieController extends Controller{
 
     public function store(BrewerieRequest $request) {
         $img = Storage::url ($request->file('img')->store('public/breweries'));
-        //varias formas de llamar request: get opcional en este caso
-        /* DB::table('breweries')->insert([
-            'name' => $request->name,
-            'description' => $request->get('description'),
-            'url' => Storage::url ($img)
-        ]); */
         $name = $request->name;
         //Lo valido
-        if ((strlen ($name) > 0) && (strlen ($name) <= 100)){
-            Brewerie::create ([
-                'name' => $request->name,
-                'description' => $request->description,
-                'url' => $img
-                ])->saveOrFail();
-                //return back ()->with();
-                return redirect()->route('home')->with ('success', 'Los datos de la cervecería han sido enviados.');
-            }
-            else{
-                return back()->with ('error', 'No ha indiciado el nombre.');
-            }
-        }
-
-        public function show($id) {
-            //Busco $id en pos.0 de array
-            //$objBrewerie = DB::table('breweries')->where('id', '=', $id)->first();
-            $objBrewerie = Brewerie::findOrFail($id);
-            //dd ($objBrewerie);
-            return view('breweries.brewerie', ['brewerie' => $objBrewerie]);
-
-            /* foreach ($this->breweries as $brewerie){
-                if ($brewerie[0] == $id){
-                    $objBrewerie = $brewerie;
-                }
-            }
-
-            if ($objBrewerie != null){
-                return view('breweries.brewerie', ['brewerie' => $objBrewerie]);
-            } else {
-                return view ('breweries.index', [
-                    'texto' => 'Local no enconrado, tal vez estas buscando uno de estos',
-                    'breweries' => $this->breweries
-                ]);
-            }*/
-        }
-
-        public function login(){
-            return view ('breweries.index', [
-                'texto' => 'Usuario no autenticado',
-                'breweries' => $this->breweries
-            ]);
-        }
-
+        Brewerie::create ([
+            'name' => $request->name,
+            'description' => $request->description,
+            'url' => $img
+        ])->saveOrFail();
+        return redirect()->route('breweriehome')->with ('success', 'Los datos de la cervecería han sido enviados.');
 
     }
+
+    public function show($id) {
+        $objBrewerie = Brewerie::findOrFail($id);
+        return view('breweries.brewerie', ['brewerie' => $objBrewerie]);
+    }
+
+    public function friendly ($name){
+        $brewerie = Brewerie::where ('name', $name)->firstOrFail();
+        return view ('breweries.brewerie', compact ('brewerie'));
+    }
+
+    public function login(){
+        return view ('breweries.index', [
+            'texto' => 'Usuario no autenticado',
+            'breweries' => $this->breweries
+        ]);
+    }
+}

@@ -15,7 +15,7 @@
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Descripción</label>
-            <textarea class="form-control" id="description" name="description" placeholder="Cuéntanos que la hace especial">{{ old('description') }}</textarea>
+            <textarea class="form-control" id="description" aria-describedby="description" name="description" placeholder="Cuéntanos que la hace especial">{{ old('description') }}</textarea>
         </div>
         <div class="mb-3">
             <label for="img" class="form-label">Imagen de portada</label>
