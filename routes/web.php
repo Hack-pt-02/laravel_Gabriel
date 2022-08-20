@@ -26,9 +26,16 @@ Route::get ('/login', [BrewerieController::class, 'login']);
 
 Route::get ('/index', [BrewerieController::class, 'index'])->name('breweriehome');
 
+Route::get ('/proposals/{user}', [BrewerieController::class, 'proposals'])->name('proposals');
+Route::get ('/breweriebeers/{beer}', [BrewerieController::class, 'breweriebeers'])->name('breweriebeers');
+
 Route::group(['middleware'=> 'auth'], function(){
     Route::get ('/brewerie', [BrewerieController::class, 'create'])->name('brewerie');
     Route::post('/brewerie', [BrewerieController::class, 'store']);
+
+    Route::get ('/brewerie/{brewerie}/edit', [BrewerieController::class, 'edit'])->name('brewerieedit');
+    Route::post('/brewerie/{brewerie}', [BrewerieController::class, 'store'])->name('brewerieupdate');
+    Route::delete('/brewerie/{brewerie}', [BrewerieController::class, 'destroy'])->name('breweriedelete');
 });
 
 Route::get ('/brewerie/{id}', [BrewerieController::class, 'show'])->name('brewerieshow');
@@ -60,9 +67,6 @@ Route::post('/beer/{beer}', [BeerController::class, 'update']);
 
 Route::post('/beer/{beer}', [BeerController::class, 'destroy']);
 */
-
-
-
 
 
 Auth::routes();

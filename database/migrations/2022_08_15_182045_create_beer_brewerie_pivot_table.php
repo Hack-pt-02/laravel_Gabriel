@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Brewerie;
+use App\Models\Beer;
 
 return new class extends Migration
 {
@@ -13,13 +15,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('beers', function (Blueprint $table) {
+        Schema::create('beer_brewerie', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100);
-            $table->text('description');
-            $table->string('country', 100);
-            $table->string('brand',100)->nullable();
-            $table->double('vol')->default(0);
+            $table->foreignIdFor(Brewerie::class)->constrained();
+            $table->foreignIdFor(Beer::class)->constrained();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('beers');
+        Schema::dropIfExists('beer_brewerie');
     }
 };

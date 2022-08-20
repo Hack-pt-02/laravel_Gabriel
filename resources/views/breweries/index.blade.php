@@ -4,6 +4,10 @@
 
 @section('content')
 
+@isset($filter)
+    <h5 class="text-center">Propuestas por {{ $filter }}</h5>
+@endisset
+
     <div class="row">
 
         @foreach ($breweries as $brewerie)
@@ -12,6 +16,12 @@
                 <img src="{{ $brewerie->url ?: asset ('/img/defaultbreweryimg.jpg') }}" onclass="card-img-top" onclick="window.location = '{{ route ('brewerieshow' , $brewerie->id)}}'">
                 <div class="card-body">
                     <h5 class="card-title"><a href="{{ route ('brewerieshow', $brewerie->id) }}" class="text-decoration-none text-warning">{{$brewerie->name}}</a></h5>
+                    <p>Propuesto por <a href="{{ route ('proposals', $brewerie->user->id) }}" class="text-decoration-none"><span class="badge bg-warning">{{ $brewerie->user->name }}</span></a></p>
+                    <p>
+                        @foreach ($brewerie->beers as $beer)
+                            <a href="{{ route ('breweriebeers', $beer->id) }}" class="text-decoration-none"><span class="badge bg-success">{{$beer->name}}</span></a>
+                        @endforeach
+                    </p>
                 </div>
             </div>
         </div>

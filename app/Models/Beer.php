@@ -4,11 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Brewerie;
 
 class Beer extends Model
 {
     use HasFactory;
 
-    protected $guard = [];
     protected $fillable = ['name', 'description', 'country', 'brand', 'vol'];
+
+    public function breweries(){
+        return $this->belongsToMany(Brewerie::class);
+    }
 }

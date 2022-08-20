@@ -11,6 +11,9 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title"><a href="{{ route ('beers.show', $beer->id) }}" class="text-decoration-none text-warning">{{$beer->name}}</a></h5>
+                    @foreach ($beer->breweries as $brewerie)
+                        <a href="{{ route ('brewerieshow', $brewerie->id) }}" class="text-decoration-none"><span class="badge bg-primary">{{ $brewerie->name }}</span></a>
+                    @endforeach
                 </div>
             </div>
         </div>
