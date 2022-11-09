@@ -24,12 +24,11 @@ class BeerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'description' => 'required',
-            'country' => 'required',
-            'brand' => 'required',
-            'vol' => 'required'
-
+            'name' => 'required|min:4|max:100',
+            'description' => 'required|min:10|max:1000',
+            'country' => 'required|min:4|max:100',
+            'brand' => 'required|min:4|max:100',
+            'vol' => 'required|min:0|max:12'
         ];
     }
 }

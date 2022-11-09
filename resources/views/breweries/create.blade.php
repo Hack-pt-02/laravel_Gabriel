@@ -33,6 +33,6 @@
     </div>
 </form>
 
-<x-message-flash />
+<x-message-flash/>
 
 @endsection

@@ -1,8 +1,10 @@
 @extends('layout.breweries')
 
-@section('title', 'Listado de cervecerías')
+@section('title', '')
 
 @section('content')
+
+@include('template.welcome')
 
 @isset($filter)
     <h5 class="text-center">Propuestas por {{ $filter }}</h5>
@@ -11,7 +13,7 @@
     <div class="row">
 
         @foreach ($breweries as $brewerie)
-        <div class="col-4 p-4">
+        <div class="col-3 p-4">
             <div class="card">
                 <img src="{{ $brewerie->url ?: asset ('/img/defaultbreweryimg.jpg') }}" onclass="card-img-top" onclick="window.location = '{{ route ('brewerieshow' , $brewerie->id)}}'">
                 <div class="card-body">

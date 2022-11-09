@@ -16,19 +16,19 @@
     </div>
 </div>
 
-<div class="container d-flex justify-content-center mt-4">
-    <div class="row justify-content-between">
-        <div class="col-sm-4"><a href="{{ route ('beers.edit', $beer) }}" class="btn btn-warning">Editar</a></div>
-        <div class="col-sm-4">
-            <form method="post" action="{{ route ('beers.destroy', $beer) }}">
-                @method("delete")
-                @csrf
-                <input type="submit" value="Eliminar" class="btn btn-danger">
-            </form>
-            <!-- a href="" class="btn btn-danger">Eliminar</!-->
-        </div>
-        <div class="col-sm-4"><a href="{{ route ('beers.index') }}" class="btn btn-success">Volver</a></div>
-    </div>
+<div class="container d-flex justify-content-center">
+    @if (Auth::check())
+
+        <div class="col text-center"><a href="{{ route ('beers.edit', $beer) }}" class="btn btn-warning">Editar</a></div>
+        <form method="post" action="{{ route ('beers.destroy', $beer) }}">
+            @csrf
+            @method('delete')
+                <div class="col text-center"><input type="submit" value="Eliminar" class="btn btn-danger"></div>
+        </form>
+    @else
+        <div class="col-sm-12 text-center"><p>Solamente el autor puede modificar la cervecería</p></div>
+    @endif
+        <div class="col text-center"><a href="{{ route ('beers.index') }}" class="btn btn-success">Volver</a></div>
 </div>
 
 @endsection

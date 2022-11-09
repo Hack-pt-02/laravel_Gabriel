@@ -1,7 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Dancing+Script:wght@700&family=DynaPuff&family=Josefin+Sans:ital,wght@0,400;1,700&display=swap');
+
 body {
-    padding: 30px;
+    padding: 0px;
 }
 
-.aulab-laravel {
-    color: red;
+.font-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 150px;
+    background: linear-gradient(to bottom, #000 5%, #DF7627 100%);
+	-webkit-background-clip: text;
+    background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.font-subtitle{
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    color: #DF7627;
+    margin-top: -20px;
+}
+.font-welcometext{
+    font-family: sans-serif;
+}
+.atf-bg{
+    height: 50vh;
 }

@@ -11,7 +11,7 @@
     <div class="mx-5 px-5">
         <div class="mb-3">
             <label for="name" class="form-label">Nombre de la cerveza</label>
-            <input type="text" class="form-control" id="name" aria-describedby="name" name="name" value="{{ old('name') }}" placeholder="Nombre comercial de la cervecería">
+            <input type="text" class="form-control" id="name" aria-describedby="name" name="name" value="{{ old('name') }}" placeholder="Nombre comercial de la cerveza">
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Descripción</label>
@@ -27,7 +27,7 @@
         </div>
         <div class="mb-3">
             <label for="vol" class="form-label">Graduación de la cerveza</label>
-            <input type="number" class="form-control" id="vol" aria-describedby="vol" name="vol" value="{{ old('vol') }}">
+            <input type="number" placeholder="0,0" step="0.1" min="0" max="12" class="form-control" id="vol" aria-describedby="vol" name="vol" value="{{ old('vol') }}">
         </div>
 
         <div class="text-center">

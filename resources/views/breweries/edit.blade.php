@@ -4,8 +4,9 @@
 
 @section('content')
 
-<form method="post" enctype="multipart/form-data" action="{{ route ('brewerie')}}">
+<form method="post" enctype="multipart/form-data" action="{{ route ('brewerieupdate', $brewerie)}}">
 
+    @method("PUT")
     @csrf
 
     <div class="mx-5 px-5">
@@ -24,7 +25,7 @@
         <div class="mb-3">
             <label for="name" class="form-label">Carta de cervezas</label>
             @foreach ($beers as $beer)
-                <input type="checkbox" id="beers_{{$beer->id}}" aria-describedby="name" name="beers[]" value="{{$beer->id}}" {{ ($brewerie->beers->find($beer->id)) ? 'checked' : '' }}> {{$beer->name}}
+                <input type="checkbox" id="beers_{{$beer->id}}" aria-describedby="name" name="beers[]" value="{{ $beer->id }}" {{ ($brewerie->beers->find($beer->id)) ? 'checked' : '' }}> {{$beer->name}}
             @endforeach
         </div>
         <div class="text-center">

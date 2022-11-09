@@ -1,4 +1,4 @@
-@extends('layout.breweries')
+{{-- @extends('layout.breweries')
 
 @section('title','Quienes somos')
 
@@ -10,7 +10,7 @@
 
 <a class="btn btn-outline-success" href="{{ route ('contact') }}">Contacta con nosotros</a>
 
-@endsection
+@endsection --}}
 {{-- <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,9 +27,9 @@
         <a class="nav-link" href="{{url ('/about')}}">Sobre nosotros</a>
         <a class="nav-link" href="{{url ('/contact')}}">Contacto</a>
     </nav>
-    
+
     <h1>Quienes somos?</h1>
-    
+
 
 
 

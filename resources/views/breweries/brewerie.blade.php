@@ -1,3 +1,5 @@
+
+
 @extends('layout.breweries')
 
 @section('title', 'Detalle de cervecería')
@@ -23,12 +25,12 @@
 </div>
 
 <div class="container d-flex justify-content-center">
-    @if (Auth::user()->id == $brewerie->user->id)
+    @if (Auth::check())
         <div class="col text-center"><a href="{{ route ('brewerieedit', $brewerie) }}" class="btn btn-warning">Editar</a></div>
         <form method="post" action="{{ route ('breweriedelete', $brewerie) }}">
             @csrf
             @method('delete')
-                <div class="col text-center"><input type="submit" class="btn btn-danger" value="Borrar"></div>
+                <div class="col text-center"><input type="submit" class="btn btn-danger" value="Eliminar"></div>
         </form>
     @else
         <div class="col-sm-12 text-center"><p>Solamente el autor puede modificar la cervecería</p></div>

@@ -38,7 +38,7 @@ class BrewerieController extends Controller{
 
     public function store(BrewerieRequest $request) {
         $img = Storage::url ($request->file('img')->store('public/breweries'));
-        $name = $request->name;
+        //$name = $request->name;
         //Lo valido
         $brewerie = Brewerie::create ([
             'user_id' => Auth::id(),
@@ -74,7 +74,7 @@ class BrewerieController extends Controller{
         $brewerie->beers()->sync($beers);
 
         $brewerie->saveOrFail();
-        return redirect()->route('breweries.index')->with ('success', 'Hemos guardado corectamente la cervecería.');
+        return redirect()->route('breweriehome')->with ('success', 'Hemos guardado corectamente la cervecería.');
     }
 
     public function destroy (Brewerie $brewerie){

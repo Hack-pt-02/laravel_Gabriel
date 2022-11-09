@@ -34,8 +34,9 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::post('/brewerie', [BrewerieController::class, 'store']);
 
     Route::get ('/brewerie/{brewerie}/edit', [BrewerieController::class, 'edit'])->name('brewerieedit');
-    Route::post('/brewerie/{brewerie}', [BrewerieController::class, 'store'])->name('brewerieupdate');
+    Route::put('/brewerie/{brewerie}', [BrewerieController::class, 'update'])->name('brewerieupdate');
     Route::delete('/brewerie/{brewerie}', [BrewerieController::class, 'destroy'])->name('breweriedelete');
+
 });
 
 Route::get ('/brewerie/{id}', [BrewerieController::class, 'show'])->name('brewerieshow');

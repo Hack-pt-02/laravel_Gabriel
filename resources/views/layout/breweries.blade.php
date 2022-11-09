@@ -8,7 +8,7 @@
 
     <!-- Titulo -->
 
-    <h2 class="text-center py-3">@yield ('title')</h2>
+    <h2 class="text-center m-0 p-0">@yield ('title')</h2>
 
     <!-- Contenido -->
 

@@ -47,7 +47,14 @@ class User extends Authenticatable
      * Relation with Breweries
      */
     public function breweries(){
-        return $this->hasMany(Breweries::class);
+        return $this->hasMany(Brewerie::class);
+    }
+
+    /**
+     * Relation with Beers
+     */
+    public function beers(){
+        return $this->hasMany(Beer::class);
     }
 
 }
