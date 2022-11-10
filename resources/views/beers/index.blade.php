@@ -1,18 +1,24 @@
 @extends('layout.breweries')
 
-@section('title', 'Listado de cervezas')
-
 @section('content')
 
-    <div class="row">
+    <h1 class="text-center m-5 p-3 display-4 h1-color fw-bold">Listado de cervezas</h1>
+
+    <div class="row mx-sm-2 px-sm-2">
 
         @foreach ($beers as $beer)
-        <div class="col-4 p-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><a href="{{ route ('beers.show', $beer->id) }}" class="text-decoration-none text-warning">{{$beer->name}}</a></h5>
+        <div class="col-12 col-lg-6 col-xl-4 p-4">
+            <div class="card card-size card-bg shadow mx-auto">
+                <div class="card-body text-center">
+                    <h3 class="card-title mt-2"><a href="{{ route ('beers.show', $beer->id) }}" class="text-decoration-none card-h3 fw-bold">{{$beer->name}}</a></h3>
+                    <h5 class="card-title mt-4"><a href="{{ route ('beers.show', $beer->id) }}" class="text-decoration-none text-dark fw-bold">{{$beer->description}}</a></h5>
+                    <p class="card-title mt-5"><a href="{{ route ('beers.show', $beer->id) }}" class="text-decoration-none text-dark fw-bold">País de origen: {{$beer->country}}</a></p>
+                    <p class="card-title"><a href="{{ route ('beers.show', $beer->id) }}" class="text-decoration-none text-dark fw-bold">Marca: {{$beer->brand}}</a></p>
+                    <p class="card-title mb-5"><a href="{{ route ('beers.show', $beer->id) }}" class="text-decoration-none text-dark fw-bold">Volumen de alcohol: {{$beer->vol}}%</a></p>
+
+                    <p>Disponible en: <br></p>
                     @foreach ($beer->breweries as $brewerie)
-                        <a href="{{ route ('brewerieshow', $brewerie->id) }}" class="text-decoration-none"><span class="badge bg-primary">{{ $brewerie->name }}</span></a>
+                        <a href="{{ route ('brewerieshow', $brewerie->id) }}" class="text-decoration-none h4 d-block"><span class="badge beer-badge text-dark">{{ $brewerie->name }}</span></a>
                     @endforeach
                 </div>
             </div>
@@ -28,12 +34,12 @@
 
     @auth
         <div>
-            <div class="container d-flex justify-content-center mt-4">
-                <a href="{{route ('beers.create')}}" class="btn btn-warning">Nueva cerveza</a>
+            <div class="container d-flex justify-content-center mt-4 mb-5">
+                <a href="{{route ('beers.create')}}" class="btn btn-color px-4">Nueva cerveza</a>
             </div>
         </div>
     @else
-        <p class="text-center">Los usuarios registrados pueden crear nuevas cervezas</p>
+        <p class="text-center mt-4 mb-5">Los usuarios registrados pueden crear nuevas cervezas</p>
     @endauth
 
 @endsection

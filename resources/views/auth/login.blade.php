@@ -1,8 +1,8 @@
 @extends('layout.breweries')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container vh-100 mt-5 pt-5">
+    <div class="row justify-content-center mt-5 pt-5">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Iniciar sesión</div>
@@ -53,7 +53,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-warning">
+                                <button type="submit" class="btn btn-color px-4">
                                     Aceptar
                                 </button>
 

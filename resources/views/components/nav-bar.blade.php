@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark text-uppercase">
     <div class="container-fluid">
         <a class="text-white nav-link active px-2" aria-current="page" href="{{route ('home') }}">Cervecerías</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -6,7 +6,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{route ('beers.index') }}">Cervezas</a>
                 </li>
@@ -17,12 +17,12 @@
                     <a class="nav-link active" aria-current="page" href="{{url ('/brewery')}}">Sugerir una
                         cervecería</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{url ('/about')}}"">Sobre nosotros</a>
-            </li>
+            </li> --}}
         </ul>
         <div>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav text-center me-2">
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
@@ -42,13 +42,11 @@
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
                     </a>
-
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                             Cerrar sesión
                         </a>
-
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>

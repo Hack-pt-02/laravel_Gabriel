@@ -16,7 +16,7 @@ class BeerController extends Controller
      */
     public function index()
     {
-        $beers = Beer::paginate(30);
+        $beers = Beer::paginate(12);
         return view ('beers.index', ['beers' => $beers]);
     }
 
