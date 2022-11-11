@@ -6,7 +6,6 @@
 
 <h1 class="text-center m-5 p-3 display-4 h1-color fw-bold">Contacto</h1>
 
-
 <form method="post" action="{{ route ('contact')}}" class="mt-5 formulario mx-auto vh-100">
 
     @csrf

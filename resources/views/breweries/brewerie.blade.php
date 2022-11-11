@@ -2,13 +2,15 @@
 
 @section('content')
 
+<h1 class="text-center m-5 p-3 display-4 h1-color fw-bold">Detalle cervecería</h1>
+
 <div class="container d-flex justify-content-center mt-5 pt-5">
     <div class="mx-auto mb-4 brewery-detail">
         <div>
             <img src="{{ $brewerie->url ?: asset ('/img/defaultbreweryimg.jpg') }}" class="img-fluid" alt="imagen de cervecería" >
         </div>
         <div>
-            <h3 class="text-center my-4">{{$brewerie->name}}</h3>
+            <h1 class="text-center my-4">{{$brewerie->name}}</h1>
             <h5 class="text-center mb-3">{{$brewerie->description}}</h5>
             <div class="">
                 <p class="d-block justify-content-center m-4 text-center">

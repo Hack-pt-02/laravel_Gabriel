@@ -30,7 +30,10 @@ body {
 
 
 .h1-color{
-    color: #794721;
+    background: linear-gradient(to bottom, #000, #DF7627 100%);
+	-webkit-background-clip: text;
+    background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 svg {
@@ -78,9 +81,14 @@ svg:hover {
     border-color: #DF7627;
 }
 
-.btn-color{
+.btn-color, .btn-nav{
     background-color: #794721;
     color: #fff;
+}
+
+.btn-nav:hover{
+    background-color: #fff;
+    color: #000;
 }
 
 .beer-badge{
@@ -113,6 +121,16 @@ svg:hover {
 
     .brewery-detail{
         width: 70vw;
+    }
+
+    .btn-nav{
+        background-color: #fff;
+        color: #000;
+    }
+
+    .btn-nav:hover{
+        background-color: #000;
+        color: #fff;
     }
 }
 

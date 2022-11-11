@@ -15,11 +15,6 @@
                     <p class="card-title mt-5"><a href="{{ route ('beers.show', $beer->id) }}" class="text-decoration-none text-dark fw-bold">País de origen: {{$beer->country}}</a></p>
                     <p class="card-title"><a href="{{ route ('beers.show', $beer->id) }}" class="text-decoration-none text-dark fw-bold">Marca: {{$beer->brand}}</a></p>
                     <p class="card-title mb-5"><a href="{{ route ('beers.show', $beer->id) }}" class="text-decoration-none text-dark fw-bold">Volumen de alcohol: {{$beer->vol}}%</a></p>
-
-                    <p>Disponible en: <br></p>
-                    @foreach ($beer->breweries as $brewerie)
-                        <a href="{{ route ('brewerieshow', $brewerie->id) }}" class="text-decoration-none h4 d-block"><span class="badge beer-badge text-dark">{{ $brewerie->name }}</span></a>
-                    @endforeach
                 </div>
             </div>
         </div>
